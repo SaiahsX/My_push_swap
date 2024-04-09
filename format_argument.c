@@ -6,30 +6,11 @@
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 19:48:46 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/04/09 16:14:14 by oadewumi         ###   ########.fr       */
+/*   Updated: 2024/04/09 18:47:00 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_error(void)
-{
-	write(2, "Error\n", 6);
-	exit(1);
-}
-
-void	ft_free_input_args(char **input_args)
-{
-	int	i;
-
-	i = 0;
-	while (input_args[i] != NULL)
-	{
-		free (input_args[i]);
-		i++;
-	}
-	free (input_args);
-}
 
 void	evaluate_inp_arg(char **argv)
 {
