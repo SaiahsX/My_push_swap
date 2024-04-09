@@ -6,7 +6,7 @@
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 19:16:06 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/04/09 19:01:04 by oadewumi         ###   ########.fr       */
+/*   Updated: 2024/04/09 19:30:46 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,18 +49,14 @@ void	ft_free_stack_mom(t_stack_mom *stack_mom)
 	stack_mom->stack_size = 0;
 }
 
-// void	ft_fill_stk_mom(int inpt_size, char **inpt_arg, t_stack_mom *stack_mom)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (i <= inpt_arg[inpt_size])
-// 	{
-// 		stack_mom->array[stack_mom->top_side] = ft_atol(inpt_arg[inpt_size]);
-// 		stack_mom->top_side++;
-// 		inpt_size--;
-// 		i++;
-// 	}
-// }
+void	ft_fill_stk_mom(int inpt_size, char **inpt_arg, t_stack_mom *stack_mom)
+{
+	while (inpt_size >= 0)
+	{
+		stack_mom->array[stack_mom->top_side] = ft_atol(inpt_arg[inpt_size]);
+		stack_mom->top_side++;
+		inpt_size--;
+	}
+}
 
 //void	ft_push_two_b(t_stack_mom *stack_a, t_stack_mom *stack_b, )
