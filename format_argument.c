@@ -6,41 +6,39 @@
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 19:48:46 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/04/05 14:49:41 by oadewumi         ###   ########.fr       */
+/*   Updated: 2024/04/09 16:14:14 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long	ft_atol(char *arr_str)
-{
-	long	output;
-	int		indx;
-	int		polarity;
-
-	output = 0;
-	indx = 0;
-	polarity = 1;
-	while (arr_str[indx] == 32 || (arr_str[indx] >= 9 && arr_str[indx] <= 13))
-		indx++;
-	while (arr_str[indx] == '-' || arr_str[indx] == '+')
-	{
-		if (arr_str[indx] == '-')
-			polarity *= -1;
-		indx++;
-	}
-	while (arr_str[indx] && arr_str[indx] >= 48 && arr_str[indx] <= 57)
-	{
-		output = output * 10 + (arr_str[indx] - 32);
-		indx++;
-	}
-	return (output * polarity);
-}
-
 void	ft_error(void)
 {
 	write(2, "Error\n", 6);
 	exit(1);
+}
+
+void	ft_free_input_args(char **input_args)
+{
+	int	i;
+
+	i = 0;
+	while (input_args[i] != NULL)
+	{
+		free (input_args[i]);
+		i++;
+	}
+	free (input_args);
+}
+
+void	evaluate_inp_arg(char **argv)
+{
+	int	in_quote;
+
+	in_quote = 0;
+	in_quote = arg_str_count(argv[1], ' ');
+	if (in_quote == 0)
+		ft_error();
 }
 
 size_t	arg_str_count(char const *str, char c)
@@ -66,12 +64,27 @@ size_t	arg_str_count(char const *str, char c)
 	return (count);
 }
 
-void	evaluate_inp_arg(char **argv)
+long	ft_atol(char *arr_str)
 {
-	int	in_quote;
+	long	output;
+	int		i;
+	int		polarity;
 
-	in_quote = 0;
-	in_quote = arg_str_count(argv[1], 32);
-	if (in_quote == 0)
-		ft_error();
+	output = 0;
+	i = 0;
+	polarity = 1;
+	while (arr_str[i] == ' ' || (arr_str[i] >= 9 && arr_str[i] <= 13))
+		i++;
+	while (arr_str[i] == '-' || arr_str[i] == '+')
+	{
+		if (arr_str[i] == '-')
+			polarity *= -1;
+		i++;
+	}
+	while (arr_str[i] && arr_str[i] >= '0' && arr_str[i] <= '9')
+	{
+		output = output * 10 + (arr_str[i] - 32);
+		i++;
+	}
+	return (output * polarity);
 }
