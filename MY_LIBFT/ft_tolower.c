@@ -1,48 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utilities.c                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 18:45:59 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/04/16 19:58:15 by oadewumi         ###   ########.fr       */
+/*   Created: 2023/10/30 17:43:53 by oadewumi          #+#    #+#             */
+/*   Updated: 2023/12/13 11:41:26 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+/* This function checks the character returned to'int c' as an ASCII character
+then it converts the charcter to lowercase if its an uppercase */
+/* This function imitates the standard C library funtion 'tolower'*/
 
-
-void	ft_error(void)
+int	ft_tolower(int c)
 {
-	write(2, "Error\n", 6);
-	exit(1);
-}
-
-void	ft_free_input_args(char **input_args)
-{
-	int	i;
-
-	i = 0;
-	while (input_args[i] != NULL)
+	if (c >= 65 && c <= 90)
 	{
-		free (input_args[i]);
-		i++;
+		c = c + 32;
 	}
-	free (input_args);
+	return (c);
 }
-
-bool	sorted(t_stack_mom *stack)
-{
-	int	i;
-
-	i = 0;
-	while (i < stack->top_side)
-	{
-		if (stack->array[i] < stack->array[i + 1])
-			return (false);
-		i++;
-	}
-	return (true);
-}
-

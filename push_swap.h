@@ -6,7 +6,7 @@
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 19:00:01 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/04/09 16:20:31 by oadewumi         ###   ########.fr       */
+/*   Updated: 2024/04/16 19:15:15 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <string.h>
 # include <limits.h>
+# include <stdbool.h>
 # include "MY_LIBFT/libft.h"
 
 typedef struct s_stack
@@ -30,16 +31,21 @@ typedef struct s_stack
 void	ft_error(void);
 void	evaluate_inp_arg(char **argv);
 int		ft_overflow_check(char *arr_str);
-int		ft_numeric_check(const char *arr_str);
-int		ft_dupli_check(char **arg_arr);
 int		sanitize_args(char **argv);
-size_t	arg_str_count(char const *str, char c);
+int		ft_dupli_check(char **arg_arr);
+int		ft_numeric_check(const char *arr_str);
 long	ft_atol(char *arr_str);
+size_t	arg_str_count(char const *str, char c);
 
 
 int		ft_sort(int argc, char **input_args);
 void	ft_free_input_args(char **input_args);
 void	ft_init_stack_mom(t_stack_mom *stack_mom, int stack_size);
+void	push_stack_mom(int inpt_size, char **inpt_arg, t_stack_mom *stack_mom);
 
+void	swap(t_stack_mom *stack);
+bool	sorted(t_stack_mom *stack);
+void	swap_a(t_stack_mom *stack_a);
+void	first_sort_stack_a(t_stack_mom *stack_a, t_stack_mom *stack_b);
 
 #endif

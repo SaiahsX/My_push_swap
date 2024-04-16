@@ -1,48 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utilities.c                                        :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 18:45:59 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/04/16 19:58:15 by oadewumi         ###   ########.fr       */
+/*   Created: 2023/10/24 15:12:40 by oadewumi          #+#    #+#             */
+/*   Updated: 2023/12/13 11:30:55 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+/*This function checks that the returned 
+character to the argument 'alf' is an alphabet*/
+/* It returns 1 if it is true and 0 if its false */
+/* This function imitates the standard Clibrary function 'isalpha' */
 
+int	ft_isalpha(int alf)
 
-void	ft_error(void)
 {
-	write(2, "Error\n", 6);
-	exit(1);
-}
-
-void	ft_free_input_args(char **input_args)
-{
-	int	i;
-
-	i = 0;
-	while (input_args[i] != NULL)
+	if ((alf >= 'A' && alf <= 'Z') || (alf >= 'a' && alf <= 'z'))
 	{
-		free (input_args[i]);
-		i++;
+		return (1);
 	}
-	free (input_args);
+	return (0);
 }
-
-bool	sorted(t_stack_mom *stack)
-{
-	int	i;
-
-	i = 0;
-	while (i < stack->top_side)
-	{
-		if (stack->array[i] < stack->array[i + 1])
-			return (false);
-		i++;
-	}
-	return (true);
-}
-

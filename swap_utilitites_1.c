@@ -1,48 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utilities.c                                        :+:      :+:    :+:   */
+/*   swap_utilitites_1.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 18:45:59 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/04/16 19:58:15 by oadewumi         ###   ########.fr       */
+/*   Created: 2024/04/16 17:15:53 by oadewumi          #+#    #+#             */
+/*   Updated: 2024/04/16 19:58:19 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-void	ft_error(void)
+//check this for correctness. especiallyy the condition
+void	swap_a(t_stack_mom *stack_a)
 {
-	write(2, "Error\n", 6);
-	exit(1);
+	swap(stack_a);
+	if (sorted == true)
+		write(1, "sa\n", 3);
 }
 
-void	ft_free_input_args(char **input_args)
+void	swap(t_stack_mom *stack)
 {
-	int	i;
+	int	temp;
 
-	i = 0;
-	while (input_args[i] != NULL)
-	{
-		free (input_args[i]);
-		i++;
-	}
-	free (input_args);
+	temp = 0;
+	if (stack->top_side < 1)
+		return ;
+	temp = stack->array[stack->top_side];
+	stack->array[stack->top_side] = stack->array[stack->top_side - 1];
+	stack->array[stack->top_side - 1] = temp;
 }
-
-bool	sorted(t_stack_mom *stack)
-{
-	int	i;
-
-	i = 0;
-	while (i < stack->top_side)
-	{
-		if (stack->array[i] < stack->array[i + 1])
-			return (false);
-		i++;
-	}
-	return (true);
-}
-

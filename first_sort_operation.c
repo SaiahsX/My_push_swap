@@ -1,48 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utilities.c                                        :+:      :+:    :+:   */
+/*   first_sort_operation.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 18:45:59 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/04/16 19:58:15 by oadewumi         ###   ########.fr       */
+/*   Created: 2024/04/16 16:23:42 by oadewumi          #+#    #+#             */
+/*   Updated: 2024/04/16 19:59:35 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-void	ft_error(void)
+//This function sorts stack_a, first it checks and sorts for 2, then more
+void	first_sort_stack_a(t_stack_mom *stack_a, t_stack_mom *stack_b)
 {
-	write(2, "Error\n", 6);
-	exit(1);
-}
-
-void	ft_free_input_args(char **input_args)
-{
-	int	i;
-
-	i = 0;
-	while (input_args[i] != NULL)
+	if (stack_a -> top_side == 1 && sorted(stack_a) == false)
+		swap_a(stack_a);
+	else
 	{
-		free (input_args[i]);
-		i++;
+		if (stack_a->top_side > 2 && sorted(stack_a) == false)
+			push_b()
 	}
-	free (input_args);
 }
-
-bool	sorted(t_stack_mom *stack)
-{
-	int	i;
-
-	i = 0;
-	while (i < stack->top_side)
-	{
-		if (stack->array[i] < stack->array[i + 1])
-			return (false);
-		i++;
-	}
-	return (true);
-}
-

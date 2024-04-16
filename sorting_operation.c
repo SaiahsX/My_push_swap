@@ -6,7 +6,7 @@
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 19:16:06 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/04/09 19:30:46 by oadewumi         ###   ########.fr       */
+/*   Updated: 2024/04/16 16:21:57 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ int	ft_sort(int argc, char **input_args)
 		input_size = argc - 1;
 	ft_init_stack_mom(&stack_a, input_size);
 	ft_init_stack_mom(&stack_b, input_size);
-	ft_fill_stack_mom(input_size, input_args, &stack_a);
+	push_stack_mom(input_size, input_args, &stack_a);
+	if (argc == 2)
+		ft_free_input_args(input_args);
+	first_sort_stack_a(&stack_a, &stack_b);
 	return (0);
 }
 
@@ -49,8 +52,9 @@ void	ft_free_stack_mom(t_stack_mom *stack_mom)
 	stack_mom->stack_size = 0;
 }
 
-void	ft_fill_stk_mom(int inpt_size, char **inpt_arg, t_stack_mom *stack_mom)
+void	push_stack_mom(int inpt_size, char **inpt_arg, t_stack_mom *stack_mom)
 {
+	inpt_size = inpt_size - 1;
 	while (inpt_size >= 0)
 	{
 		stack_mom->array[stack_mom->top_side] = ft_atol(inpt_arg[inpt_size]);

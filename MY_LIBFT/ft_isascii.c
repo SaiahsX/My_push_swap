@@ -1,48 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utilities.c                                        :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 18:45:59 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/04/16 19:58:15 by oadewumi         ###   ########.fr       */
+/*   Created: 2023/10/24 17:44:33 by oadewumi          #+#    #+#             */
+/*   Updated: 2023/12/13 14:57:27 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+/* This function checks if the argument is an ASCII character*/
+/* It returns 1 if its true and 0 if its false */
+/* This function imitates the standard C library function 'isascii' */
 
-
-void	ft_error(void)
+int	ft_isascii(int a)
 {
-	write(2, "Error\n", 6);
-	exit(1);
-}
-
-void	ft_free_input_args(char **input_args)
-{
-	int	i;
-
-	i = 0;
-	while (input_args[i] != NULL)
+	if (a >= 0 && a <= 127)
 	{
-		free (input_args[i]);
-		i++;
+		return (1);
 	}
-	free (input_args);
+	return (0);
 }
-
-bool	sorted(t_stack_mom *stack)
-{
-	int	i;
-
-	i = 0;
-	while (i < stack->top_side)
-	{
-		if (stack->array[i] < stack->array[i + 1])
-			return (false);
-		i++;
-	}
-	return (true);
-}
-

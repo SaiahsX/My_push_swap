@@ -1,48 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utilities.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 18:45:59 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/04/16 19:58:15 by oadewumi         ###   ########.fr       */
+/*   Created: 2023/10/24 17:01:21 by oadewumi          #+#    #+#             */
+/*   Updated: 2023/12/13 11:31:09 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+/*	This function checks if the argument 'num' is all digits,
+then it returns a value of 1 if that is true and 0 if that is false.
+*/
+/* This fuction is to imitate the behaviour of the 
+standard C library function 'isdigit'*/
 
-
-void	ft_error(void)
+int	ft_isdigit(int num)
 {
-	write(2, "Error\n", 6);
-	exit(1);
-}
-
-void	ft_free_input_args(char **input_args)
-{
-	int	i;
-
-	i = 0;
-	while (input_args[i] != NULL)
+	if (num >= '0' && num <= '9')
 	{
-		free (input_args[i]);
-		i++;
+		return (1);
 	}
-	free (input_args);
+	return (0);
 }
-
-bool	sorted(t_stack_mom *stack)
-{
-	int	i;
-
-	i = 0;
-	while (i < stack->top_side)
-	{
-		if (stack->array[i] < stack->array[i + 1])
-			return (false);
-		i++;
-	}
-	return (true);
-}
-
