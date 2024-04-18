@@ -6,7 +6,7 @@
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 19:16:06 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/04/16 16:21:57 by oadewumi         ###   ########.fr       */
+/*   Updated: 2024/04/18 16:41:33 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	push_stack_mom(int inpt_size, char **inpt_arg, t_stack_mom *stack_mom)
 	inpt_size = inpt_size - 1;
 	while (inpt_size >= 0)
 	{
+		// push(ft_atol(inpt_arg[inpt_size]), stack_mom);
 		stack_mom->array[stack_mom->top_side] = ft_atol(inpt_arg[inpt_size]);
 		stack_mom->top_side++;
 		inpt_size--;

@@ -6,7 +6,7 @@
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 17:15:53 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/04/16 19:58:19 by oadewumi         ###   ########.fr       */
+/*   Updated: 2024/04/18 14:08:08 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 void	swap_a(t_stack_mom *stack_a)
 {
 	swap(stack_a);
-	if (sorted == true)
-		write(1, "sa\n", 3);
+	write(1, "sa\n", 3);
 }
 
 void	swap(t_stack_mom *stack)

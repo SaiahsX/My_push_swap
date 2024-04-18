@@ -6,7 +6,7 @@
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 19:00:01 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/04/16 19:15:15 by oadewumi         ###   ########.fr       */
+/*   Updated: 2024/04/18 13:51:30 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,13 @@ void	ft_free_input_args(char **input_args);
 void	ft_init_stack_mom(t_stack_mom *stack_mom, int stack_size);
 void	push_stack_mom(int inpt_size, char **inpt_arg, t_stack_mom *stack_mom);
 
+int		pop(t_stack_mom *stack);
 void	swap(t_stack_mom *stack);
 bool	sorted(t_stack_mom *stack);
 void	swap_a(t_stack_mom *stack_a);
+void	push(int position_value, t_stack_mom *stack);
 void	first_sort_stack_a(t_stack_mom *stack_a, t_stack_mom *stack_b);
+
+void	push_b(t_stack_mom *stack_a, t_stack_mom *stack_b);
 
 #endif

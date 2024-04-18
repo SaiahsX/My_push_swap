@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   first_sort_operation.c                             :+:      :+:    :+:   */
+/*   push_utilities.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 16:23:42 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/04/18 14:07:05 by oadewumi         ###   ########.fr       */
+/*   Created: 2024/04/18 12:42:30 by oadewumi          #+#    #+#             */
+/*   Updated: 2024/04/18 13:55:28 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//This function sorts stack_a, first it checks and sorts for 2, then more
-void	first_sort_stack_a(t_stack_mom *stack_a, t_stack_mom *stack_b)
+void	push(int position_value, t_stack_mom *stack)
 {
-	if (stack_a -> top_side == 1 && sorted(stack_a) == false)
-		swap_a(stack_a);
-	else
-	{
-		if (stack_a->top_side > 2 && sorted(stack_a) == false)
-			push_b(stack_a, stack_b);
-		if (stack_a->top_side > 2 && sorted(stack_a) == false)
-			push_b(stack_a, stack_b);
-		
-	}
+	stack->array[stack->top_side] = position_value;
+	stack->top_side++;
+}
+
+int	pop(t_stack_mom *stack)
+{
+	return (stack->array[stack->top_side--]);
+}
+
+//function to push to stack_b and writes out "pb\n"
+void	push_b(t_stack_mom *stack_a, t_stack_mom *stack_b)
+{
+	if (stack_b->top_side >= 0)
+		push(pop(stack_a), stack_b);
+	write(1, "pb\n", 3);
 }
