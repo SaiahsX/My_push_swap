@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_utilities.c                                   :+:      :+:    :+:   */
+/*   swap_utilities_1.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/18 12:42:30 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/04/25 18:07:57 by oadewumi         ###   ########.fr       */
+/*   Created: 2024/04/16 17:15:53 by oadewumi          #+#    #+#             */
+/*   Updated: 2024/04/26 20:29:42 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(int position_value, t_stack_mom *stack)
+void	swap(t_stack_mom *stack)
 {
-	stack->array[stack->top] = position_value;
-	stack->top++;
+	int	temp;
+
+	temp = 0;
+	if (stack->top < 1)
+		return ;
+	temp = stack->array[stack->top];
+	stack->array[stack->top] = stack->array[stack->top - 1];
+	stack->array[stack->top - 1] = temp;
 }
 
-int	pop(t_stack_mom *stack)
+//check this for correctness. especiallyy the condition
+void	swap_a(t_stack_mom *stack_a)
 {
-	return (stack->array[stack->top--]);
+	swap(stack_a);
+	write(1, "sa\n", 3);
 }
 
-//function to push to stack_b and writes out "pb\n"
-void	push_b(t_stack_mom *stack_a, t_stack_mom *stack_b)
-{
-	if (stack_b->top >= 0)
-		push(pop(stack_a), stack_b);
-	write(1, "pb\n", 3);
-}

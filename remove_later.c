@@ -114,3 +114,112 @@
 // 	}
 // 	return (0);
 // }
+
+
+
+
+// void	only_three_sort_a(t_stack_mom *stack_a, int argc)
+// {
+// 	int	*stack;
+
+// 	stack = stack_a->array;
+// 	if (argc == 3 & sorted(stack_a) == false)
+// 	{
+// 		if (stack[stack_a->top - 1] < stack[stack_a->top - 2]
+// 			&& stack[stack_a->top] < stack[stack_a->top - 2])
+// 		{
+// 			swap_a(stack_a);
+// 			return ;
+// 		}
+// 		if (stack[stack_a->top] < stack[stack_a->top - 1])
+// 		{
+// 			if (stack[stack_a->top - 1] > stack[stack_a->top - 2])
+// 				rev_rot_a(stack_a);
+// 			else
+// 				rot_a(stack_a);
+// 		}
+// 		else
+// 			rev_rot_a(stack_a);
+// 		if (sorted(stack_a) == false)
+// 			swap_a(stack_a);
+// 	}
+// }
+
+
+
+/* static void	print_all_str(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != NULL)
+	{
+		printf("%s", str[i]);
+		i++;
+	}
+	printf("\n");
+} */
+
+
+
+// Armins method adoption for sort 3 but too long
+/* void	sort_three_sort_a(t_stack_mom *a, int argc)
+{
+	if (argc == 3)
+	{
+		if (a->array[a->top] > a->array[a->top - 1]
+			&& a->array[a->top] < a->array[a->top - 2]
+			&& a->array[a->top - 1] < a->array[a->top - 2])
+			swap_a(a);
+		else if (a->array[a->top] > a->array[a->top - 1]
+			&& a->array[a->top] > a->array[a->top - 2]
+			&& a->array[a->top - 1] < a->array[a->top - 2])
+			rot_a(a);
+		else if (a->array[a->top] < a->array[a->top - 1]
+			&& a->array[a->top] > a->array[a->top - 2]
+			&& a->array[a->top - 1] > a->array[a->top - 2])
+			rev_rot_a(a);
+		else if (a->array[a->top] > a->array[a->top - 1]
+			&& a->array[a->top - 1] > a->array[a->top - 2])
+		{
+			swap_a(a);
+			rev_rot_a(a);
+		}
+		else if (a->array[a->top] < a->array[a->top - 1]
+			&& a->array[a->top - 1] > a->array[a->top - 2])
+		{
+			swap_a(a);
+			rot_a(a);
+		}
+	}
+} */
+
+
+
+// python file that can be run with my a.out and against a checker to check sort3 num
+// save this in a new .py file. suggested name - 3_num_perm.py
+// run with python3 3_num_perm.py  
+
+
+/* import itertools
+import subprocess
+
+# Generate all permutations of 1, 2, 3
+permutations = list(itertools.permutations([1, 2, 3]))
+
+# Iterate over each permutation
+for perm in permutations:
+    # Convert the permutation to a string with spaces between numbers
+    perm_str = ' '.join(map(str, perm))
+    
+    # Print the permutation being tested
+    print("Testing permutation:", perm_str)
+    
+    # Run a.out with the current permutation as input and pipe the output to checker_mac
+    command = f"./a.out {perm_str} && ./a.out {perm_str} | ./checker_Mac {perm_str}"
+    
+    # Execute the command and capture the output
+    output = subprocess.run(command, shell=True, capture_output=True, text=True)
+    
+    # Print the output from checker_mac
+    print(output.stdout)  */

@@ -6,7 +6,7 @@
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 19:48:46 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/04/09 18:47:00 by oadewumi         ###   ########.fr       */
+/*   Updated: 2024/04/20 13:04:57 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ long	ft_atol(char *arr_str)
 	}
 	while (arr_str[i] && arr_str[i] >= '0' && arr_str[i] <= '9')
 	{
-		output = output * 10 + (arr_str[i] - 32);
+		output = output * 10 + (arr_str[i] - '0');
 		i++;
 	}
 	return (output * polarity);
