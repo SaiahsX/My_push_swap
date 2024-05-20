@@ -6,13 +6,13 @@
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 18:28:55 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/04/04 10:18:31 by oadewumi         ###   ########.fr       */
+/*   Updated: 2024/05/02 19:25:44 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*	This function allocates memory and returns an array of strings 
+/*	This function allocates memory and returns an arr of strings 
 obtained by splitting the string 's' using the character 'c'as a delimiter.
-The array must also end with a null pointer.	*/
+The arr must also end with a null pointer.	*/
 /*	The function was broken down to 3 parts:
 1:	ft_substr_poll to count through the 's' & return the # of substrings.
 2:	ft_split (primary function) to allocate needed memory & return result.

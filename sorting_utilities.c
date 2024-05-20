@@ -6,7 +6,7 @@
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:45:18 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/04/25 18:07:57 by oadewumi         ###   ########.fr       */
+/*   Updated: 2024/05/18 18:59:16 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,56 +19,56 @@ bool	sorted(t_stack_mom *stack)
 	i = 0;
 	while (i < stack->top)
 	{
-		if (stack->array[i] < stack->array[i + 1])
+		if (stack->arr[i] < stack->arr[i + 1])
 			return (false);
 		i++;
 	}
 	return (true);
 }
 
-int	maximum_value(t_stack_mom *stack)
+int	max(t_stack_mom *stack)
 {
 	int	i;
-	int	max_value;
+	int	max_val;
 
 	i = 0;
-	max_value = stack->array[stack->top];
+	max_val = stack->arr[stack->top];
 	while (i <= stack->top)
 	{
-		if (stack->array[i] > max_value)
-			max_value = stack->array[i];
+		if (stack->arr[i] > max_val)
+			max_val = stack->arr[i];
 		i++;
 	}
-	return (max_value);
+	return (max_val);
 }
 
-int	minimum_value(t_stack_mom *stack)
+int	min(t_stack_mom *stack)
 {
 	int	i;
-	int	min_value;
+	int	min_val;
 
 	i = 0;
-	min_value = stack->array[stack->top];
+	min_val = stack->arr[stack->top];
 	while (i <= stack->top)
 	{
-		if (stack->array[i] < min_value)
-			min_value = stack->array[i];
+		if (stack->arr[i] < min_val)
+			min_val = stack->arr[i];
 		i++;
 	}
-	return (min_value);
+	return (min_val);
 }
 
-//function to find the position of the maximum or minimum value in the stack
-int	find_position(t_stack_mom *stack, int min_max_val)
+//function to find the position of the max, min or any value in the stack
+int	find_position(t_stack_mom *stack, int value)
 {
 	int	pos;
-	int	i;
+	int	index;
 
 	pos = 0;
-	i = stack->top;
-	while (stack->array[i] != min_max_val)
+	index = stack->top;
+	while (stack->arr[index] != value)
 	{
-		i--;
+		index--;
 		pos++;
 	}
 	return (pos);

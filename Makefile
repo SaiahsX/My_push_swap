@@ -8,38 +8,24 @@ SRCS     =   argument_sanitization.c \
             sorting_utilities.c \
             swap_utilities_1.c \
             utilities.c \
+			final_sort.c \
+			rotate_operation.c \
 
 OFILES    =    $(SRCS:.c=.o)
-
-# BOFILES   =    $(BONUS_SRCS:.c=.o)
-
 CC        =    cc
 RM        =    -rm -rf
 CFLAGS    =    -Wall -Wextra -Werror
 
-NAME    =    push_swap.a
+NAME    =    push_swap
 
 all:        $(NAME)
 
 $(NAME):	$(OFILES)
 	@ $(MAKE) -C ./MY_LIBFT
 	@ $(CC) $(CFLAGS) $(OFILES) ./MY_LIBFT/libft.a -o $(NAME)
-	# @ $(CC) $(CFLAGS) $(BOFILES) ./libft.a -o $(BONUS)
-	# ar -rcs $(NAME) $(OFILES)
 
 norm:
 	norminette $(SRCS)
-
-# BONUS = .bonus
-
-# bonus:  ${BONUS}
-
-# ${BONUS}:   $(OFILES) $(BOFILES)
-# 		ar -rcs $(NAME)  $(OFILES) $(BOFILES)
-# 		touch ${BONUS}
-
-# ${BOFILES}:     ${BONUS_SRCS}
-# 		cc	${CFLAGS}	-c ${BONUS_SRCS}	-I	libft.h
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) $?

@@ -6,11 +6,12 @@
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 12:00:37 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/04/09 16:15:33 by oadewumi         ###   ########.fr       */
+/*   Updated: 2024/05/20 19:57:40 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 
 int	sanitize_args(char **arg_arr)
 {

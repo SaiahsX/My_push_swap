@@ -6,7 +6,7 @@
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 13:06:30 by oadewumi          #+#    #+#             */
-/*   Updated: 2023/12/13 11:38:39 by oadewumi         ###   ########.fr       */
+/*   Updated: 2024/05/02 19:25:44 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 	Linked list consist of nodes where each node contains 2 parts:
 	The data itself & a refrnce (or pointer) to the next node in the sequence.
 	This way, the elements in a linked list are not necessarily stored in 
-	contigous memory locations, unlike arrays. Instead, 
+	contigous memory locations, unlike arrs. Instead, 
 	they are connected via pointers.
 	The first node in a llinked list is called the Head & the last node 
 	typically pointss to NULL, indicating the end of the list.

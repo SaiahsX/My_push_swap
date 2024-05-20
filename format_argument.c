@@ -6,7 +6,7 @@
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 19:48:46 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/04/20 13:04:57 by oadewumi         ###   ########.fr       */
+/*   Updated: 2024/05/19 14:17:09 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ size_t	arg_str_count(char const *str, char c)
 	return (count);
 }
 
+// this function converts string to long int also it checks if its just a
+//sign that is passed and gives an error
 long	ft_atol(char *arr_str)
 {
 	long	output;
@@ -56,9 +58,11 @@ long	ft_atol(char *arr_str)
 	polarity = 1;
 	while (arr_str[i] == ' ' || (arr_str[i] >= 9 && arr_str[i] <= 13))
 		i++;
-	while (arr_str[i] == '-' || arr_str[i] == '+')
+	if (arr_str[i] == '-' || arr_str[i] == '+')
 	{
-		if (arr_str[i] == '-')
+		if (ft_strlen(arr_str) == 1)
+			ft_error ();
+		else if (arr_str[i] == '-')
 			polarity *= -1;
 		i++;
 	}
