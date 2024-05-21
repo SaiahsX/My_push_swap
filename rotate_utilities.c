@@ -6,7 +6,7 @@
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 19:07:12 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/05/20 20:04:41 by oadewumi         ###   ########.fr       */
+/*   Updated: 2024/05/21 20:56:50 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,16 @@ void	rotate(t_stack_mom *stack)
 		i--;
 	}
 	stack->arr[0] = temp;
+}
+
+void	rev_rot_a(t_stack_mom *stack_a)
+{
+	reverse_rotate(stack_a);
+	write(1, "rra\n", 4);
+}
+
+void	rev_rot_b(t_stack_mom *stack_b)
+{
+	reverse_rotate(stack_b);
+	write(1, "rrb\n", 4);
 }

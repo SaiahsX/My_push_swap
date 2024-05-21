@@ -6,7 +6,7 @@
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 19:00:01 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/05/20 20:06:54 by oadewumi         ###   ########.fr       */
+/*   Updated: 2024/05/21 20:30:33 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
 
 typedef struct s_stack
 {
-	int	stack_size;
-	int	top;
-	int	*arr;	
+	int		stack_size;
+	int		top;
+	long	*arr;
 }	t_stack_mom;
 
 

@@ -6,13 +6,12 @@
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 19:52:40 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/05/20 20:01:46 by oadewumi         ###   ########.fr       */
+/*   Updated: 2024/05/21 21:06:21 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
-
 
 // static void	print_array(t_stack_mom *a)
 // {
@@ -23,7 +22,7 @@
 // 	i = a->top;
 // 	while (i > -1)
 // 	{
-// 		printf("%d\n", a->arr[i]);
+// 		// printf("%d\n", a->arr[i]);
 // 		i--;
 // 		x++;
 // 	}
@@ -31,6 +30,40 @@
 // 		printf("yes, it is very well sorted\n");
 // 	printf("x_count %d", x);
 // 	printf("\n");
+// }
+
+// void    list_print_both(t_stack_mom *a, t_stack_mom *b)
+// {
+//     // t_list*    cur_a;
+//     // t_list*    cur_b;
+
+//     // cur_a = *a;
+//     // cur_b = *b;
+
+//     printf("---------\n");
+//     printf("A\tB\n");
+
+// 	int i = 0;
+//     while (i <= a->stack_size && i <= b->stack_size) {
+
+//         if (a->arr[a->stack_size - i] != 0) 
+// 		{
+//             printf("%ld", a->arr[a->stack_size - i]);
+//         }
+//         else
+//             printf("-");
+
+//         printf("\t");
+
+//         if (b->arr[b->stack_size - i]) {
+//             printf("%ld", b->arr[b->stack_size - i]);
+//         }
+//         else
+//             printf("-");
+
+//         printf("\n");
+// 		i++;
+//     }
 // }
 
 void	radix_helper(t_stack_mom *a, t_stack_mom *b, int i)
@@ -73,39 +106,7 @@ void	radix(t_stack_mom *a, t_stack_mom *b)
 		radix_helper(a, b, i);
 	}
 	revert_offset(a, offset);
+	list_print_both(a, b);
 	//print_array (a);
 }
 
-/* void    list_print_both(t_stack_mom *a, t_stack_mom *b)
-{
-    // t_list*    cur_a;
-    // t_list*    cur_b;
-
-    // cur_a = *a;
-    // cur_b = *b;
-
-    printf("---------\n");
-    printf("A\tB\n");
-
-	int i = 0;
-    while (i <= a->stack_size && i <= b->stack_size) {
-
-        if (a->arr[a->stack_size - i] != 0) 
-		{
-            printf("%d", a->arr[a->stack_size - i]);
-        }
-        else
-            printf("-");
-
-        printf("\t");
-
-        if (b->arr[b->stack_size - i]) {
-            printf("%d", b->arr[b->stack_size - i]);
-        }
-        else
-            printf("-");
-
-        printf("\n");
-		i++;
-    }
-} */

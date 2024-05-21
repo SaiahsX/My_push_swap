@@ -6,7 +6,7 @@
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 19:16:06 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/05/20 20:02:17 by oadewumi         ###   ########.fr       */
+/*   Updated: 2024/05/21 16:54:56 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	ft_sort_mom(int argc, char **input_args)
 //and setting the stack size to the argument input size
 void	ft_init_stack_mom(t_stack_mom *stack_mom, int input_size)
 {
-	stack_mom->arr = (int *)ft_calloc(input_size + 1, sizeof(int));
+	stack_mom->arr = (long *)ft_calloc(input_size + 1, sizeof(long));
 	if (!stack_mom->arr)
 		ft_error();
 	stack_mom->top = -1;

@@ -6,7 +6,7 @@
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 16:23:42 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/05/20 19:58:40 by oadewumi         ###   ########.fr       */
+/*   Updated: 2024/05/21 20:57:45 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ void	sort_three_sort_a(t_stack_mom *a)
 	}
 }
 
-
 void	sort_small_a(t_stack_mom *a, t_stack_mom *b)
 {
 	if (a->top < 5 && sorted(a) == false)
@@ -87,3 +86,4 @@ void	sort_small_a(t_stack_mom *a, t_stack_mom *b)
 			push_a(a, b);
 	}
 }
+

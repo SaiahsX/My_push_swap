@@ -446,3 +446,114 @@ for perm in permutations:
 // 		rotate (a);
 // 	}
 // }
+
+
+
+//Modified radix sort (work in progress) to find a better rotation.
+// it currently doesnt work. but thanks David Horvath fot this help.
+// void	radix(t_stack_mom *a, t_stack_mom *b)
+// {
+// 	int	i;
+// 	int	x;
+// 	int	size;
+// 	int	offset;
+// 	int	needed_rot;
+// 	int	rev_rot;
+
+// 	offset = abslt(min(a)) + 1;
+// 	apply_offset(a, offset);
+// 	i = 0;
+// 	while (i < a->top && (sorted(a) == false))
+// 	{
+// 		x = -1;
+// 		size = a->top;
+// 		needed_rot = 0;
+// 		while (x++ < size && (a) != NULL && sorted(a) == false)
+// 		{
+// 			if (((a->arr[a->top] >> i) & 1) == 0)
+// 			{
+// 				// printf("%i\n", a->top - needed_rot);
+// 				if (needed_rot > a->top - needed_rot)
+// 				{
+// 					rev_rot = a->top - needed_rot;
+// 					while(needed_rot-- > 0)
+// 						reverse_rotate(a);
+// 					while (rev_rot-- > 0)
+// 					{
+// 						printf("yes we are rev rotating\n");
+// 						rev_rot_a(a);
+						
+// 					}
+// 				}
+// 				else
+// 				{
+// 					while (needed_rot-- > 0)
+// 						printf("ra\n");
+// 				}
+// 				push_b(a, b);
+// 				needed_rot = 0;
+// 			}
+// 			else
+// 			{
+// 				rotate(a);
+// 				needed_rot++;
+// 			}
+// 		}
+// 		i++;
+// 		radix_helper(a, b, i);
+// 	}
+// 	revert_offset(a, offset);
+// 	print_array (a);
+// }
+
+
+//This is a print function i got and modified from Robert Korhonen
+//This function print out in a robust way and visually both stacks .
+/* void    list_print_both(t_stack_mom *a, t_stack_mom *b)
+{
+    // t_list*    cur_a;
+    // t_list*    cur_b;
+
+    // cur_a = *a;
+    // cur_b = *b;
+
+    printf("---------\n");
+    printf("A\tB\n");
+
+	int i = 0;
+    while (i <= a->stack_size && i <= b->stack_size) {
+
+        if (a->arr[a->stack_size - i] != 0) 
+		{
+            printf("%d", a->arr[a->stack_size - i]);
+        }
+        else
+            printf("-");
+
+        printf("\t");
+
+        if (b->arr[b->stack_size - i]) {
+            printf("%d", b->arr[b->stack_size - i]);
+        }
+        else
+            printf("-");
+
+        printf("\n");
+		i++;
+    }
+} */
+
+
+//my initial pop function without zeroing
+// int	pop(t_stack_mom *stack)
+// {
+// 	int	temp;
+
+// 	if (stack->top > -1)
+// 	{
+// 		temp = stack->arr[stack->top--];
+// 		return (temp);
+// 	}
+// 	ft_error ();
+// 	return (-1);
+// }

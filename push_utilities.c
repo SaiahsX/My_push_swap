@@ -6,7 +6,7 @@
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:42:30 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/05/20 20:05:42 by oadewumi         ###   ########.fr       */
+/*   Updated: 2024/05/21 20:55:54 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,14 @@ void	push(int position_value, t_stack_mom *stack)
 // The error messsages can be modified to display more gracefully
 int	pop(t_stack_mom *stack)
 {
+	int	temp;
+
 	if (stack->top > -1)
-		return (stack->arr[stack->top--]);
+	{
+		temp = stack->arr[stack->top];
+		stack->arr[stack->top--] = 0;
+		return (temp);
+	}
 	ft_error ();
 	return (-1);
 }
