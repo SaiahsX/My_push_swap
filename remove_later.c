@@ -196,7 +196,7 @@ static void	print_array(t_stack_mom *a)
 		printf("yes, it is very well sorted\n");
 	printf("x_count %d", x);
 	printf("\n");
- */
+ }*/
 
 
 // Armins method adoption for sort 3 but too long
@@ -557,3 +557,18 @@ for perm in permutations:
 // 	ft_error ();
 // 	return (-1);
 // }
+
+
+
+// test out mappinng method instead of offset
+/* long *dummy_sort(t_stack_mom *a)
+{
+	long *sorted_dummy;
+
+	sorted_dummy = ft_calloc(a->stack_size, sizeof(long));
+	if (sorted_dummy == NULL)
+		return (NULL);
+	int i = 0;
+	while ()
+	sorted_dummy = a->arr;
+} */
