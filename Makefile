@@ -10,6 +10,7 @@ SRCS     =   argument_sanitization.c \
             utilities.c \
 			final_sort.c \
 			rotate_operation.c \
+			special_indx.c \
 
 OFILES    =    $(SRCS:.c=.o)
 CC        =    cc
@@ -27,6 +28,9 @@ $(NAME):	$(OFILES)
 norm:
 	norminette $(SRCS)
 
+debug: CFLAGS += -g -fsanitize=address
+debug: re
+
 %.o: %.c
 	$(CC) -c $(CFLAGS) $?
 
@@ -39,4 +43,4 @@ fclean: clean
 
 re: fclean $(NAME)
 
-.PHONY: all clean fclean re norm
+.PHONY: all clean fclean re norm debug

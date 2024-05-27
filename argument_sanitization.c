@@ -6,13 +6,16 @@
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 12:00:37 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/05/20 19:57:40 by oadewumi         ###   ########.fr       */
+/*   Updated: 2024/05/22 20:10:19 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
+// This function is ensuring the arguments received are thoroughly checked
+// for duplicates, for int overflow and if only integers are parsed. If not,
+// we print an error message.
+// else, it returns a zero indicating success and no errors.
 int	sanitize_args(char **arg_arr)
 {
 	int	i;
@@ -75,4 +78,3 @@ int	ft_overflow_check(char *arr_str)
 		ft_error();
 	return (0);
 }
-

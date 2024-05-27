@@ -6,7 +6,7 @@
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 19:48:46 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/05/19 14:17:09 by oadewumi         ###   ########.fr       */
+/*   Updated: 2024/05/22 22:05:11 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,10 @@ size_t	arg_str_count(char const *str, char c)
 	return (count);
 }
 
-// this function converts string to long int also it checks if its just a
-//sign that is passed and gives an error
+// this function converts string to long int 
+//also it checks if its just a sign that is passed and gives an error
+//This can be seen on line 62 - 65
+
 long	ft_atol(char *arr_str)
 {
 	long	output;

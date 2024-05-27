@@ -6,66 +6,48 @@
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 19:52:40 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/05/21 21:06:21 by oadewumi         ###   ########.fr       */
+/*   Updated: 2024/05/27 15:44:07 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-// static void	print_array(t_stack_mom *a)
-// {
-// 	int	i;
-// 	int	x;
+static void	replace_og(t_stack_mom *a)
+{
+	int	i;
 
-// 	x = 0;
-// 	i = a->top;
-// 	while (i > -1)
-// 	{
-// 		// printf("%d\n", a->arr[i]);
-// 		i--;
-// 		x++;
-// 	}
-// 	if (sorted(a) == true)
-// 		printf("yes, it is very well sorted\n");
-// 	printf("x_count %d", x);
-// 	printf("\n");
-// }
+	i = 0;
+	while (i <= a->top)
+	{
+		a->arr[i] = a->indx_arr[i];
+		i++;
+	}
+}
 
-// void    list_print_both(t_stack_mom *a, t_stack_mom *b)
-// {
-//     // t_list*    cur_a;
-//     // t_list*    cur_b;
+//This is helper function for the radix sort that does the following
+//copying the stack_a into a third array (a 1D array),
+//bubble sorted the third array,
+//mapped the location of each element of stack_a to its position in
+//the third array. Then the position is stored in a 4th array.
+//Memory protction employed in syuch a way that if there are any failures
+//the stack memories are freed and the program exited. else, the array
+//is freed normally after its use.
+static void	radix_indx_buff(t_stack_mom *a, t_stack_mom *b)
+{
+	long	*cup;
 
-//     // cur_a = *a;
-//     // cur_b = *b;
+	cup = dummy_sort(a);
+	if (cup == NULL)
+	{
+		ft_free_both_stacks(a, b);
+		ft_error ();
+	}
+	index_arr(a, cup);
+	free (cup);
+}
 
-//     printf("---------\n");
-//     printf("A\tB\n");
-
-// 	int i = 0;
-//     while (i <= a->stack_size && i <= b->stack_size) {
-
-//         if (a->arr[a->stack_size - i] != 0) 
-// 		{
-//             printf("%ld", a->arr[a->stack_size - i]);
-//         }
-//         else
-//             printf("-");
-
-//         printf("\t");
-
-//         if (b->arr[b->stack_size - i]) {
-//             printf("%ld", b->arr[b->stack_size - i]);
-//         }
-//         else
-//             printf("-");
-
-//         printf("\n");
-// 		i++;
-//     }
-// }
-
+// This is a helper for radix, it pushes back to stack_a is the targetted 
+// bit in stack_b is true
 void	radix_helper(t_stack_mom *a, t_stack_mom *b, int i)
 {
 	int	size;
@@ -81,17 +63,26 @@ void	radix_helper(t_stack_mom *a, t_stack_mom *b, int i)
 	}
 }
 
+//This function uses bitwise operation by comparing a targetted bit to 0
+// if true, this is pushed to the stack_b else a rotation is performed
+// this function used fewer instruction, pa, pb, ra and rb, It is my hope 
+// to optimise this function to include more instructions like rra and rrb
+// this would reduce the amount of moves. However, all efforts to this have
+// caused the algorithm to fail to sort. More work is needed on this. 
+// But now its good enough.
+// Also, offset is utilised to cater to negative integers since radix doesnt 
+// work well with negative integers. (perhaps i know too little to do it)
+// the offset is applied before the sort and reverted after the sort.
 void	radix(t_stack_mom *a, t_stack_mom *b)
 {
-	int	i;
-	int	x;
-	int	size;
-	int	offset;
+	int		i;
+	int		x;
+	int		size;
 
-	offset = abslt(min(a)) + 1;
-	apply_offset(a, offset);
+	radix_indx_buff(a, b);
+	replace_og(a);
 	i = 0;
-	while (i < a->top && (sorted(a) == false))
+	while (i < a->top && sorted(a) == false)
 	{
 		x = -1;
 		size = a->top;
@@ -105,8 +96,4 @@ void	radix(t_stack_mom *a, t_stack_mom *b)
 		i++;
 		radix_helper(a, b, i);
 	}
-	revert_offset(a, offset);
-	list_print_both(a, b);
-	//print_array (a);
 }
-

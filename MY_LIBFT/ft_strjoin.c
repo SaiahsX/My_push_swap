@@ -6,7 +6,7 @@
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 19:32:23 by oadewumi          #+#    #+#             */
-/*   Updated: 2023/12/13 11:40:20 by oadewumi         ###   ########.fr       */
+/*   Updated: 2024/05/22 20:16:24 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 a result of the conctenation of s1 an s2.	*/
 /*	For this function, the variable types of the strings are typecasted &
 their lenghts determined via ft_strlen	*/
-/*	Removed  above two new variablles to typecast the variables in the parameter.
+/* Removed above 2 new variablles to typecast the variables in the parameter.
 This is because ft_strlen got fixed so no need for typecasting.	*/
 /*	The operation of ft_strlcpy and ft_strcat was used for the copying	*/
 /*	Both source lengths + 1 will serve as the count for the memory allocation
