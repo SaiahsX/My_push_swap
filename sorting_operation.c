@@ -6,7 +6,7 @@
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 19:16:06 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/05/21 16:54:56 by oadewumi         ###   ########.fr       */
+/*   Updated: 2024/05/24 21:25:44 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,23 +43,34 @@ int	ft_sort_mom(int argc, char **input_args)
 //This function initialises the stacks by allocating memory to the stack
 //Also by setting the stack top value to -1
 //and setting the stack size to the argument input size
+// Also, due to the nature of logic used for sorting MIN/MAX ints,
+// the variable type is made to a long to accomodate for overflow.
 void	ft_init_stack_mom(t_stack_mom *stack_mom, int input_size)
 {
 	stack_mom->arr = (long *)ft_calloc(input_size + 1, sizeof(long));
 	if (!stack_mom->arr)
 		ft_error();
 	stack_mom->top = -1;
+	stack_mom->indx_arr = (long *)ft_calloc(input_size + 1, sizeof(long));
+	if (!stack_mom->indx_arr)
+		ft_error ();
 	stack_mom->stack_size = input_size;
 }
 
+// This functiion is part of the stack memory management responsiblle for 
+// memory deallocation.
 void	ft_free_stack_mom(t_stack_mom *stack_mom)
 {
 	free(stack_mom->arr);
 	stack_mom->arr = NULL;
 	stack_mom->top = 0;
+	free(stack_mom->indx_arr);
+	stack_mom->indx_arr = NULL;
 	stack_mom->stack_size = 0;
 }
 
+// This function is reponsible for managing the deallocation of the memory
+// of two stacks at once. because why not :D.
 void	ft_free_both_stacks(t_stack_mom *a, t_stack_mom *b)
 {
 	ft_free_stack_mom(a);

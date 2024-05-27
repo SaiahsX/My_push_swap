@@ -6,27 +6,20 @@
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 18:45:59 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/05/20 20:04:05 by oadewumi         ###   ########.fr       */
+/*   Updated: 2024/05/24 17:03:02 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+//This function explicitely prints/ writes out an error message when called
 void	ft_error(void)
 {
 	write(2, "Error\n", 6);
 	exit(1);
 }
 
-//Helper function to help convert -ves to absolute value
-int	abslt(int num)
-{
-	if (num < 0)
-		return (-num);
-	else
-		return (num);
-}
-
+// This function is also a part of memory management that deallocates memory
 void	ft_free_input_args(char **input_args)
 {
 	int	i;
@@ -38,28 +31,4 @@ void	ft_free_input_args(char **input_args)
 		i++;
 	}
 	free (input_args);
-}
-
-void	apply_offset(t_stack_mom *a, int offset)
-{
-	int	i;
-
-	i = 0;
-	while (i <= a->top)
-	{
-		a->arr[i] += offset;
-		i++;
-	}
-}
-
-void	revert_offset(t_stack_mom *a, int offset)
-{
-	int	i;
-
-	i = 0;
-	while (i <= a->top)
-	{
-		a->arr[i] -= offset;
-		i++;
-	}
 }

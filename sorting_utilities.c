@@ -6,12 +6,13 @@
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:45:18 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/05/18 18:59:16 by oadewumi         ###   ########.fr       */
+/*   Updated: 2024/05/24 17:00:54 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+//This function returns a boolean, true/false if a stack is sorted or not
 bool	sorted(t_stack_mom *stack)
 {
 	int	i;
@@ -26,22 +27,7 @@ bool	sorted(t_stack_mom *stack)
 	return (true);
 }
 
-int	max(t_stack_mom *stack)
-{
-	int	i;
-	int	max_val;
-
-	i = 0;
-	max_val = stack->arr[stack->top];
-	while (i <= stack->top)
-	{
-		if (stack->arr[i] > max_val)
-			max_val = stack->arr[i];
-		i++;
-	}
-	return (max_val);
-}
-
+//This function is responsible for locating the min value in a stack
 int	min(t_stack_mom *stack)
 {
 	int	i;
